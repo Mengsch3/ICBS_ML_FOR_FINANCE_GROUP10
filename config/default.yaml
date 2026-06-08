@@ -1,0 +1,133 @@
+{
+  "paths": {
+    "input_dir": "data/inputs",
+    "intermediary_dir": "data/intermediary",
+    "output_dir": "data/outputs",
+    "log_dir": "logs",
+    "legacy_step_dir": "src/mlf_c2o/legacy_steps"
+  },
+  "inputs": {
+    "required_files": [
+      "prices.parquet",
+      "earnings_calendar.parquet",
+      "earnings_transfo.parquet",
+      "short_interest_transfo.parquet",
+      "gics_info.parquet",
+      "regime.parquet",
+      "sp500_tr.parquet",
+      "all_data.parquet"
+    ]
+  },
+  "run": {
+    "copy_mode": "hardlink",
+    "python_executable": "",
+    "run_id": "",
+    "timeout_seconds": 7200
+  },
+  "strategy": {
+    "train_start_date": "2010-01-01",
+    "predict_start_year": 2013,
+    "backtest_start_date": "2013-01-01",
+    "backtest_end_date": "2024-12-31",
+    "aum_levels": [50000000, 250000000, 1000000000],
+    "basket_fraction": 0.05,
+    "participation_cap": 0.05,
+    "commission_bps": 0.5,
+    "slippage_bps": 1.5,
+    "spread_lookback_days": 252,
+    "spread_quantile": 0.80,
+    "ic_lookback_days": 126,
+    "min_rolling_ic": 0.02,
+    "random_seed": 42
+  },
+  "steps": [
+    {
+      "name": "step1_daily_panel",
+      "script": "build_daily_panel.py",
+      "expected_outputs": [
+        "Output/step1_daily_panel.parquet",
+        "Output/diagnostics/step1_yearly_universe_summary.csv",
+        "Output/diagnostics/step1_stylized_fact_daily.csv"
+      ]
+    },
+    {
+      "name": "step2_capacity_universe",
+      "script": "build_capacity_universe.py",
+      "expected_outputs": [
+        "Output/step2_capacity_universe.parquet",
+        "Output/diagnostics/step2_reason_summary.csv",
+        "Output/diagnostics/step2_aum_eligible_by_year.csv"
+      ]
+    },
+    {
+      "name": "step3_borrow_model",
+      "script": "build_borrow_model.py",
+      "expected_outputs": [
+        "Output/step3_borrow_model.parquet",
+        "Output/diagnostics/step3_borrow_tier_summary.csv"
+      ]
+    },
+    {
+      "name": "step4_alpha_model",
+      "script": "build_alpha_model.py",
+      "expected_outputs": [
+        "Output/step4_alpha_scores.parquet",
+        "Output/diagnostics/step4_ic_summary.csv",
+        "Output/diagnostics/step4_feature_importance.csv",
+        "Output/diagnostics/step4_feature_group_importance.csv",
+        "Output/diagnostics/step4_feature_importance_concentration.csv"
+      ]
+    },
+    {
+      "name": "step5_backtest",
+      "script": "build_backtest.py",
+      "expected_outputs": [
+        "Output/diagnostics/step5_pnl_50m.csv",
+        "Output/diagnostics/step5_pnl_250m.csv",
+        "Output/diagnostics/step5_pnl_1b.csv",
+        "Output/diagnostics/step5_net_returns_50m.csv",
+        "Output/diagnostics/step5_net_returns_250m.csv",
+        "Output/diagnostics/step5_net_returns_1b.csv",
+        "Output/diagnostics/step5_signal_gate.csv",
+        "Output/diagnostics/step5_headline_performance.csv",
+        "Output/diagnostics/step5_cost_decomposition.csv",
+        "Output/diagnostics/step5_year_by_year_performance.csv",
+        "Output/diagnostics/step5_console_output.txt"
+      ]
+    },
+    {
+      "name": "step6_audit_diagnostics",
+      "script": "build_audit_diagnostics.py",
+      "expected_outputs": [
+        "Output/diagnostics/step6_capacity_cap_comparison.csv",
+        "Output/diagnostics/step6_capacity_position_audit.csv",
+        "Output/diagnostics/step6_borrow_high_si_contribution.csv",
+        "Output/diagnostics/step6_borrow_high_si_exclusion.csv",
+        "Output/diagnostics/step6_reporting_integrity_audit.csv"
+      ]
+    },
+    {
+      "name": "step7_report_figures",
+      "script": "build_report_figures.py",
+      "expected_outputs": [
+        "Output/figures/fig01_short_interest_series_aapl.png",
+        "Output/figures/fig02_stylised_fact.png",
+        "Output/figures/fig03_capacity_by_aum.png",
+        "Output/figures/fig04_feature_importance.png",
+        "Output/figures/fig05_feature_group_importance.png",
+        "Output/figures/fig06_feature_importance_concentration.png",
+        "Output/figures/fig07_signal_gate.png",
+        "Output/figures/fig08_cumulative_returns.png",
+        "Output/figures/fig09_drawdown_250m.png"
+      ]
+    },
+    {
+      "name": "step8_quantstats_tearsheet",
+      "script": "build_quantstats_tearsheet.py",
+      "expected_outputs": [
+        "Output/tearsheet_250m.html",
+        "Output/diagnostics/step8_quantstats_summary.csv"
+      ]
+    }
+  ]
+}
