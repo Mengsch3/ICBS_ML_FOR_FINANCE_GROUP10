@@ -1,0 +1,412 @@
+[2026-06-08T17:20:06] START step1_daily_panel
+True
+True
+True
+Done
+[2026-06-08T17:20:51] DONE  step1_daily_panel
+[2026-06-08T17:20:51] START step2_capacity_universe
+              bucket  ...  average_impact_bps_at_cap
+0    Typical mid-cap  ...                  31.752420
+1  Typical large-cap  ...                  26.835971
+
+[2 rows x 17 columns]
+           aum  year  ...  min_capacity_eligible_names  max_capacity_eligible_names
+0     50000000  2000  ...                            0                            0
+1     50000000  2001  ...                            0                            0
+2     50000000  2002  ...                            0                            0
+3     50000000  2003  ...                            0                            0
+4     50000000  2004  ...                            0                            0
+..         ...   ...  ...                          ...                          ...
+70  1000000000  2020  ...                          286                          511
+71  1000000000  2021  ...                          343                          550
+72  1000000000  2022  ...                          344                          582
+73  1000000000  2023  ...                          361                          575
+74  1000000000  2024  ...                            0                          617
+
+[75 rows x 7 columns]
+    eligibility_reason  stock_days  fraction
+0  NOT_YEARLY_UNIVERSE     4102967  0.520883
+1                   OK     2837104  0.360178
+2             ADV_FAIL      753328  0.095637
+3          EARN_WINDOW      106570  0.013529
+4           PRICE_FAIL       57023  0.007239
+5            MCAP_FAIL       11713  0.001487
+6             VOL_FAIL        7236  0.000919
+7         MISSING_DATA        1000  0.000127
+    year   eligibility_reason  stock_days
+0   2000  NOT_YEARLY_UNIVERSE      232109
+1   2001  NOT_YEARLY_UNIVERSE      233039
+2   2002  NOT_YEARLY_UNIVERSE      243068
+3   2003  NOT_YEARLY_UNIVERSE      247321
+4   2004  NOT_YEARLY_UNIVERSE      254747
+5   2005  NOT_YEARLY_UNIVERSE      262396
+6   2006  NOT_YEARLY_UNIVERSE      267707
+7   2007  NOT_YEARLY_UNIVERSE      276604
+8   2008  NOT_YEARLY_UNIVERSE      284969
+9   2009  NOT_YEARLY_UNIVERSE      286649
+10  2010             ADV_FAIL       97440
+11  2010          EARN_WINDOW        1773
+12  2010            MCAP_FAIL        4595
+13  2010  NOT_YEARLY_UNIVERSE       41215
+14  2010                   OK      131446
+15  2010           PRICE_FAIL       16731
+16  2010             VOL_FAIL          15
+17  2011             ADV_FAIL       91899
+18  2011          EARN_WINDOW        3190
+19  2011            MCAP_FAIL        2181
+    year  avg_eligible_names  ...  max_eligible_names  avg_universe_names
+0   2000            0.000000  ...                   0            0.000000
+1   2001            0.000000  ...                   0            0.000000
+2   2002            0.000000  ...                   0            0.000000
+3   2003            0.000000  ...                   0            0.000000
+4   2004            0.000000  ...                   0            0.000000
+5   2005            0.000000  ...                   0            0.000000
+6   2006            0.000000  ...                   0            0.000000
+7   2007            0.000000  ...                   0            0.000000
+8   2008            0.000000  ...                   0            0.000000
+9   2009            0.000000  ...                   0            0.000000
+10  2010          521.611111  ...                 577         1000.000000
+11  2011          562.015873  ...                 622          999.996032
+12  2012          561.548000  ...                 594          999.996000
+13  2013          607.373016  ...                 648          999.996032
+14  2014          685.178571  ...                 731         1000.000000
+15  2015          719.365079  ...                 774          999.992063
+16  2016          742.023810  ...                 824          999.992063
+17  2017          782.199203  ...                 846         1000.000000
+18  2018          837.143426  ...                 894          999.996016
+19  2019          826.857143  ...                 894          999.988095
+20  2020          823.881423  ...                 903         1000.000000
+21  2021          886.968254  ...                 968         1000.000000
+22  2022          894.159363  ...                 953          999.996016
+23  2023          902.976000  ...                 969          999.944000
+24  2024          923.376984  ...                 988         1000.000000
+
+[25 rows x 5 columns]
+True
+True
+True
+True
+True
+True
+Step 2 done
+[2026-06-08T17:21:49] DONE  step2_capacity_universe
+[2026-06-08T17:21:49] START step3_borrow_model
+  borrow_tier  stock_days  fraction
+0           A     2266604  0.798915
+1           B      444033  0.156509
+2           C      126467  0.044576
+borrow_tier  Year  Tier A  Tier B  ...  Tier A pct  Tier B pct  Tier C pct
+0            2010  106099   19293  ...   80.716796   14.677510    4.605694
+1            2011  115783   19713  ...   81.751490   13.918858    4.329652
+2            2012  116592   18421  ...   83.050425   13.121585    3.827990
+3            2013  122883   22150  ...   80.285251   14.471638    5.243110
+4            2014  135520   27710  ...   78.487244   16.048417    5.464338
+
+[5 rows x 8 columns]
+   index  borrow_cost_annual
+0  count        2.837104e+06
+1   mean        9.891931e-03
+2    std        1.621182e-02
+3    min        4.000000e-03
+4    25%        4.000000e-03
+5    50%        4.000000e-03
+6    75%        4.000000e-03
+7    max        8.000000e-02
+    year  missing_fraction
+0   2010          0.012423
+1   2011          0.012512
+2   2012          0.013156
+3   2013          0.008788
+4   2014          0.008705
+5   2015          0.007872
+6   2016          0.007562
+7   2017          0.006815
+8   2018          0.008119
+9   2019          0.003974
+10  2020          0.001434
+11  2021          0.001306
+12  2022          0.000481
+13  2023          0.001307
+14  2024          0.001186
+Step 3 done
+[2026-06-08T17:22:17] DONE  step3_borrow_model
+[2026-06-08T17:22:17] START step4_alpha_model
+Loading Step 3 panel...
+Adding alpha features (literature-driven feature set)...
+Building cross-sectional rank target...
+Trimming memory (drop OHLC, downcast to float32)...
+
+Walk-forward training and prediction (quarterly retraining, per-fold IC screening, threshold=0.01)...
+fold_end=2012-12-31 | trained on   413,461 rows | scored 36,131 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2013-03-31 | trained on   449,592 rows | scored 38,905 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2013-06-30 | trained on   488,497 rows | scored 38,225 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2013-09-30 | trained on   526,722 rows | scored 39,797 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2013-12-31 | trained on   566,519 rows | scored 42,575 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2014-03-31 | trained on   609,094 rows | scored 43,346 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2014-06-30 | trained on   652,440 rows | scored 42,654 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2014-09-30 | trained on   695,094 rows | scored 44,090 rows | kept 52 / dropped 14 / flipped 15
+fold_end=2014-12-31 | trained on   739,184 rows | scored 43,563 rows | kept 54 / dropped 12 / flipped 14
+fold_end=2015-03-31 | trained on   782,747 rows | scored 45,111 rows | kept 54 / dropped 12 / flipped 14
+fold_end=2015-06-30 | trained on   827,858 rows | scored 46,713 rows | kept 54 / dropped 12 / flipped 14
+fold_end=2015-09-30 | trained on   874,571 rows | scored 45,893 rows | kept 54 / dropped 12 / flipped 14
+fold_end=2015-12-31 | trained on   920,464 rows | scored 45,706 rows | kept 53 / dropped 13 / flipped 14
+fold_end=2016-03-31 | trained on   966,170 rows | scored 46,577 rows | kept 53 / dropped 13 / flipped 14
+fold_end=2016-06-30 | trained on 1,012,747 rows | scored 46,778 rows | kept 53 / dropped 13 / flipped 14
+fold_end=2016-09-30 | trained on 1,059,525 rows | scored 47,929 rows | kept 53 / dropped 13 / flipped 14
+fold_end=2016-12-31 | trained on 1,107,454 rows | scored 48,304 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2017-03-31 | trained on 1,125,162 rows | scored 49,486 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2017-06-30 | trained on 1,140,459 rows | scored 48,585 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2017-09-30 | trained on 1,156,162 rows | scored 49,957 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2017-12-31 | trained on 1,172,863 rows | scored 51,561 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2018-03-31 | trained on 1,190,123 rows | scored 53,717 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2018-06-30 | trained on 1,208,417 rows | scored 51,733 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2018-09-30 | trained on 1,223,521 rows | scored 53,112 rows | kept 52 / dropped 14 / flipped 14
+fold_end=2018-12-31 | trained on 1,240,835 rows | scored 51,009 rows | kept 51 / dropped 15 / flipped 14
+fold_end=2019-03-31 | trained on 1,257,476 rows | scored 52,151 rows | kept 51 / dropped 15 / flipped 14
+fold_end=2019-06-30 | trained on 1,273,521 rows | scored 52,936 rows | kept 51 / dropped 15 / flipped 14
+fold_end=2019-09-30 | trained on 1,291,381 rows | scored 52,272 rows | kept 51 / dropped 15 / flipped 14
+fold_end=2019-12-31 | trained on 1,309,394 rows | scored 51,253 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2020-03-31 | trained on 1,323,938 rows | scored 51,494 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2020-06-30 | trained on 1,336,527 rows | scored 52,445 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2020-09-30 | trained on 1,351,364 rows | scored 53,250 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2020-12-31 | trained on 1,364,848 rows | scored 54,706 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2021-03-31 | trained on 1,377,050 rows | scored 56,246 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2021-06-30 | trained on 1,389,919 rows | scored 55,803 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2021-09-30 | trained on 1,403,054 rows | scored 56,761 rows | kept 49 / dropped 17 / flipped 14
+fold_end=2021-12-31 | trained on 1,415,757 rows | scored 56,174 rows | kept 47 / dropped 19 / flipped 14
+fold_end=2022-03-31 | trained on 1,428,409 rows | scored 56,018 rows | kept 47 / dropped 19 / flipped 14
+fold_end=2022-06-30 | trained on 1,439,319 rows | scored 56,312 rows | kept 47 / dropped 19 / flipped 14
+fold_end=2022-09-30 | trained on 1,448,896 rows | scored 55,930 rows | kept 47 / dropped 19 / flipped 14
+fold_end=2022-12-31 | trained on 1,458,957 rows | scored 55,699 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2023-03-31 | trained on 1,468,960 rows | scored 56,046 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2023-06-30 | trained on 1,478,436 rows | scored 56,993 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2023-09-30 | trained on 1,488,632 rows | scored 57,006 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2023-12-31 | trained on 1,496,959 rows | scored 56,217 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2024-03-31 | trained on 1,505,679 rows | scored 58,181 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2024-06-30 | trained on 1,514,393 rows | scored 59,638 rows | kept 48 / dropped 18 / flipped 14
+fold_end=2024-09-30 | trained on 1,524,620 rows | scored 58,655 rows | kept 48 / dropped 18 / flipped 14
+
+Computing IC statistics...
+
+-- IC Summary ----------------------------------------------------------
+ mean_ic   std_ic  t_statistic  p_value  ic_positive_fraction     ir  n_days
+0.034645 0.174709      10.8956      0.0                0.6171 0.1983    3019
+
+-- IC by Year ----------------------------------------------------------
+ year  mean_ic   std_ic  t_statistic  ic_positive_fraction  n_days
+ 2013 0.071110 0.111705      10.1056                0.7857     252
+ 2014 0.060714 0.123658       7.7942                0.7421     252
+ 2015 0.042180 0.127761       5.2409                0.6627     252
+ 2016 0.033510 0.154762       3.4373                0.6111     252
+ 2017 0.050347 0.151631       5.2604                0.6335     251
+ 2018 0.041646 0.192713       3.4238                0.6215     251
+ 2019 0.026301 0.212332       1.9663                0.6190     252
+ 2020 0.016093 0.224182       1.1418                0.5415     253
+ 2021 0.037715 0.205134       2.9186                0.5794     252
+ 2022 0.017512 0.216775       1.2799                0.5060     251
+ 2023 0.011613 0.169642       1.0823                0.5600     250
+ 2024 0.006796 0.147620       0.7294                0.5418     251
+
+-- Feature Importance (top 15) -----------------------------------------
+                        feature  importance
+                feature_beta_on 1331.354167
+      feature_r_overnight_lag10 1302.083333
+       feature_r_overnight_lag5 1223.604167
+       feature_r_overnight_lag4 1199.125000
+       feature_r_overnight_lag3 1197.729167
+       feature_r_overnight_lag2 1142.083333
+     feature_r_overnight_t_norm 1087.750000
+                feature_beta_id  974.020833
+          feature_r_overnight_t  941.321429
+       feature_r_overnight_lag1  932.687500
+              feature_seor_lag1  920.666667
+        feature_r_intraday_lag3  816.208333
+        feature_r_intraday_lag2  815.666667
+feature_r_overnight_t_norm_rank  795.395833
+     feature_r_overnight_t_rank  775.000000
+
+-- Feature Group Importance ---------------------------------------------
+ rank group_id                         group_name  importance  importance_share  remaining_gain_share_if_removed  active_features  n_group_features                top_feature  top_feature_importance
+    1        C                  Overnight history 8863.125000          0.252509                         0.747491               10                10   feature_r_overnight_lag5             1223.604167
+    2        D                   Intraday history 3994.000000          0.113789                         0.886211                7                 7    feature_r_intraday_lag3              816.208333
+    3        A              Current overnight gap 3599.467262          0.102548                         0.897452                5                 6 feature_r_overnight_t_norm             1087.750000
+    4        N         Enhanced momentum/reversal 3527.354167          0.100494                         0.899506                5                 6  feature_r_overnight_lag10             1302.083333
+    5        K              Session beta and SEOR 3226.041667          0.091910                         0.908090                3                 3            feature_beta_on             1331.354167
+    6        E           Volatility and liquidity 3163.059524          0.090115                         0.909885                6                 6         feature_vol60_lag1              755.562500
+    7        J   DS/TOI overnight-intraday spread 2842.833333          0.080992                         0.919008                6                 6            feature_ds_ma20              552.479167
+    8        M        Four-factor overnight style 1981.395833          0.056450                         0.943550                4                 4                feature_hlv              706.062500
+    9        H                      Gap and range 1835.770833          0.052301                         0.947699                3                 5  feature_open_to_prev_high              698.041667
+   10        F Short interest and borrow pressure 1043.416667          0.029727                         0.970273                2                 5          feature_short_dsi              540.000000
+
+-- Importance Concentration ---------------------------------------------
+        metric                                                                                                                 name  importance  importance_share
+   top_feature                                                                                                      feature_beta_on 1331.354167          0.037930
+top_5_features feature_beta_on,feature_r_overnight_lag10,feature_r_overnight_lag5,feature_r_overnight_lag4,feature_r_overnight_lag3 6253.895833          0.178173
+     top_group                                                                                                 C: Overnight history 8863.125000          0.252509
+
+Saving outputs...
+
+Step 4 done.
+[2026-06-08T17:38:06] DONE  step4_alpha_model
+[2026-06-08T17:38:06] START step5_backtest
+Step 5 console output will be saved -> ..\Output\diagnostics\step5_console_output.txt
+Loading alpha scores + capacity data...
+Backtest window: 2013-01-02 -> 2024-12-31
+Participation cap: 5% ADV
+
+Building point-in-time rolling signal gate...
+Rolling gate: spread >= prior 252d p80.0%, rolling IC(126d) >= 0.020
+Trade days allowed: 424 / 3020 (14.0%)
+
+------------------------------------------------------------------------
+BASKET_FRAC DIAGNOSTIC (@ $250M AUM, fixed rolling gate)
+------------------------------------------------------------------------
+    frac    net_sharpe   gross_sharpe   net_ret%   net_vol%   trade_cost_bps
+    5.0%         0.325          0.905       0.81       2.48            142.6
+    7.5%         0.288          0.931       0.64       2.24            142.9
+   10.0%         0.208          0.896       0.44       2.10            143.3
+   12.5%         0.167          0.894       0.33       1.99            143.7
+   15.0%         0.124          0.891       0.24       1.90            144.1
+------------------------------------------------------------------------
+
+Headline uses fixed BASKET_FRAC = 5.0%; no test-period best-frac selection.
+
+Running backtest @ AUM = $50M ...
+Running backtest @ AUM = $250M ...
+Running backtest @ AUM = $1B ...
+
+================================================================================
+HEADLINE PERFORMANCE TABLE  (2013-2024, net of all costs)
+================================================================================
+      net_ann_ret (%)  net_ann_vol (%)  net_sharpe  gross_sharpe  max_drawdown (%)  avg_daily_turnover (1-way %)  avg_gross_exposure (%)  frac_days_at_cap (%)  trade_cost_ann (bps)  borrow_cost_ann (bps)
+AUM                                                                                                                                                                                                        
+50M              0.76             2.47       0.309         0.891             -6.52                          12.0                    14.0                  86.0                 142.5                    2.8
+250M             0.81             2.48       0.325         0.905             -6.78                          12.0                    14.0                  86.0                 142.6                    2.8
+1B               1.88             2.70       0.699         1.149             -5.01                          10.2                    12.0                  95.9                 122.2                    2.1
+
+------------------------------------------------------------
+COST DECOMPOSITION @ $50M AUM
+------------------------------------------------------------
+  Gross Sharpe:               0.891
+  After commission Sharpe:    0.750
+  After slippage Sharpe:      0.320
+  Net   Sharpe:               0.309
+  Commission drag:             35.6 bps/yr ( 0.142 Sharpe)
+  Slippage drag:              106.9 bps/yr ( 0.429 Sharpe)
+  Borrow drag:                  2.8 bps/yr ( 0.011 Sharpe)
+  Total cost drag:            145.3 bps/yr ( 0.582 Sharpe)
+
+------------------------------------------------------------
+COST DECOMPOSITION @ $250M AUM
+------------------------------------------------------------
+  Gross Sharpe:               0.905
+  After commission Sharpe:    0.764
+  After slippage Sharpe:      0.337
+  Net   Sharpe:               0.325
+  Commission drag:             35.6 bps/yr ( 0.141 Sharpe)
+  Slippage drag:              106.9 bps/yr ( 0.428 Sharpe)
+  Borrow drag:                  2.8 bps/yr ( 0.011 Sharpe)
+  Total cost drag:            145.4 bps/yr ( 0.580 Sharpe)
+
+------------------------------------------------------------
+COST DECOMPOSITION @ $1B AUM
+------------------------------------------------------------
+  Gross Sharpe:               1.149
+  After commission Sharpe:    1.039
+  After slippage Sharpe:      0.707
+  Net   Sharpe:               0.699
+  Commission drag:             30.5 bps/yr ( 0.109 Sharpe)
+  Slippage drag:               91.6 bps/yr ( 0.333 Sharpe)
+  Borrow drag:                  2.1 bps/yr ( 0.008 Sharpe)
+  Total cost drag:            124.3 bps/yr ( 0.450 Sharpe)
+
+------------------------------------------------------------
+YEAR-BY-YEAR PERFORMANCE @ $50M AUM
+------------------------------------------------------------
+ year  net_sharpe  net_ret (%)  trade_days  n_long_avg_all  n_short_avg_all  n_long_avg_traded  n_short_avg_traded
+ 2013       0.765         0.68          35            4.17             4.17               30.0                30.0
+ 2014       0.504         0.80          69            9.15             9.15               33.4                33.4
+ 2015      -0.206        -0.60          39            5.62             5.62               36.3                36.3
+ 2016       0.494         1.50          36            5.27             5.27               36.9                36.9
+ 2017       1.470         2.42          56            8.61             8.61               38.6                38.6
+ 2018       0.683         2.07          69           11.35            11.35               41.3                41.3
+ 2019      -0.988        -1.76          21            3.45             3.45               41.4                41.4
+ 2020       0.094         0.48          61            9.37             9.37               38.9                38.9
+ 2021       1.149         2.76          23            4.12             4.12               45.1                45.1
+ 2022       1.189         0.95           5            0.90             0.90               45.2                45.2
+ 2023      -0.074        -0.15          10            1.82             1.82               45.4                45.4
+ 2024         NaN         0.00           0            0.00             0.00                0.0                 0.0
+
+------------------------------------------------------------
+YEAR-BY-YEAR PERFORMANCE @ $250M AUM
+------------------------------------------------------------
+ year  net_sharpe  net_ret (%)  trade_days  n_long_avg_all  n_short_avg_all  n_long_avg_traded  n_short_avg_traded
+ 2013       0.935         0.89          35            4.17             4.17               30.0                30.0
+ 2014       0.812         1.38          69            9.15             9.15               33.4                33.4
+ 2015      -0.266        -0.80          39            5.62             5.62               36.3                36.3
+ 2016       0.576         1.74          36            5.27             5.27               36.9                36.9
+ 2017       1.392         2.30          56            8.61             8.61               38.6                38.6
+ 2018       0.759         2.31          69           11.35            11.35               41.3                41.3
+ 2019      -1.106        -2.00          21            3.45             3.45               41.4                41.4
+ 2020       0.098         0.50          61            9.37             9.37               38.9                38.9
+ 2021       1.090         2.64          23            4.12             4.12               45.1                45.1
+ 2022       1.135         0.94           5            0.90             0.90               45.2                45.2
+ 2023      -0.118        -0.23          10            1.82             1.82               45.4                45.4
+ 2024         NaN         0.00           0            0.00             0.00                0.0                 0.0
+
+------------------------------------------------------------
+YEAR-BY-YEAR PERFORMANCE @ $1B AUM
+------------------------------------------------------------
+ year  net_sharpe  net_ret (%)  trade_days  n_long_avg_all  n_short_avg_all  n_long_avg_traded  n_short_avg_traded
+ 2013       1.039         1.49          35            4.17             4.17               30.0                30.0
+ 2014       1.750         6.63          69            9.15             9.15               33.4                33.4
+ 2015      -0.239        -0.94          39            5.62             5.62               36.3                36.3
+ 2016       0.784         2.37          36            5.27             5.27               36.9                36.9
+ 2017       1.369         2.47          56            8.61             8.61               38.6                38.6
+ 2018       1.433         4.63          69           11.35            11.35               41.3                41.3
+ 2019      -1.204        -2.12          21            3.45             3.45               41.4                41.4
+ 2020       0.985         4.46          61            9.37             9.37               38.9                38.9
+ 2021       1.241         3.03          23            4.12             4.12               45.1                45.1
+ 2022       1.077         1.05           5            0.90             0.90               45.2                45.2
+ 2023      -0.344        -0.48          10            1.82             1.82               45.4                45.4
+ 2024         NaN         0.00           0            0.00             0.00                0.0                 0.0
+
+Daily P&L saved -> Output/diagnostics/step5_pnl_{50m,250m,1b}.csv
+Signal gate saved -> Output/diagnostics/step5_signal_gate.csv
+Basket diagnostic saved -> Output/diagnostics/step5_basket_frac_diagnostic.csv
+Headline table saved -> Output/diagnostics/step5_headline_performance.csv
+Cost decomposition saved -> Output/diagnostics/step5_cost_decomposition.csv
+Year-by-year table saved -> Output/diagnostics/step5_year_by_year_performance.csv
+Console output saved -> Output/diagnostics/step5_console_output.txt
+Back-test done.
+[2026-06-08T17:41:28] DONE  step5_backtest
+[2026-06-08T17:41:28] START step6_audit_diagnostics
+Loading back-test panel with short-interest diagnostics...
+Building baseline point-in-time signal gate...
+Running 5% ADV-cap baseline and saving per-position diagnostics...
+Running no-cap counterfactual...
+Running high-short-interest hard-exclusion counterfactual...
+Saved Step 6 audit diagnostics:
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_capacity_cap_comparison.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_capacity_position_audit.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_borrow_high_si_contribution.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_borrow_high_si_exclusion.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_reporting_integrity_audit.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_capacity_positions_50m.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_capacity_positions_250m.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_capacity_positions_1b.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_pnl_no_cap_50m.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_pnl_no_cap_250m.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_pnl_no_cap_1b.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_pnl_exclude_high_si_50m.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_pnl_exclude_high_si_250m.csv
+  - C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step6_pnl_exclude_high_si_1b.csv
+[2026-06-08T17:44:56] DONE  step6_audit_diagnostics
+[2026-06-08T17:44:56] START step7_report_figures
+Figures saved to: C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\figures
+[2026-06-08T17:44:59] DONE  step7_report_figures
+[2026-06-08T17:44:59] START step8_quantstats_tearsheet
+Tear-sheet saved to C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\tearsheet_250m.html
+Summary saved to C:\Users\stree\PycharmProjects\PythonProject\PG\Machine Learning and Finance Codex\MLF_C2O_Final_Deliverable\data\outputs\20260608_172006\artifacts\legacy_workspace\Output\diagnostics\step8_quantstats_summary.csv
+[2026-06-08T17:45:03] DONE  step8_quantstats_tearsheet
+[2026-06-08T17:45:03] PIPELINE COMPLETED

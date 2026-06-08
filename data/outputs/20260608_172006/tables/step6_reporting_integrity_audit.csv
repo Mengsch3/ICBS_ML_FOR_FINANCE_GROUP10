@@ -1,0 +1,5 @@
+audit_item,status,evidence,reproduction_command
+chart_reproducibility,NOT_APPLICABLE,This final delivery is code-only and does not include LaTeX report figures.,python -m mlf_c2o.main --dry-run
+pipeline_reproducibility,PASS,mlf_c2o.run_pipeline runs Step 1 through Step 6 in order and checks expected outputs after each step.,python -m mlf_c2o.main
+random_seed,PASS,Step 4 sets RANDOM_SEED=42 and passes seed=RANDOM_SEED to LightGBM; the unused Step 5 meta-model also fixes random_state=42.,"rg -n ""RANDOM_SEED|random_state|seed"" Src"
+assumptions_on_binding_figures,NOT_APPLICABLE,No report figures are shipped in this code-only delivery; binding assumptions are declared in config/default.yaml.,python -m mlf_c2o.main --dry-run

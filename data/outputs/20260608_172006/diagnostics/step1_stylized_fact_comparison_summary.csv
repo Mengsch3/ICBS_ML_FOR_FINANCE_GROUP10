@@ -1,0 +1,2 @@
+final_growth_overnight,final_growth_intraday,final_growth_close_to_close,years_overnight_gt_intraday,total_years,mean_annual_overnight,mean_annual_intraday,mean_annual_close_to_close,sd_annual_overnight,sd_annual_intraday,sd_annual_close_to_close
+4.191303058441324,1.929210742910556,7.9327974261193726,7,15,0.1051025957593241,0.05082033125867583,0.15772296761649165,0.10640518779780422,0.11553034087375197,0.15023479294568515

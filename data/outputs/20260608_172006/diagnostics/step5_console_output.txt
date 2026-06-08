@@ -1,0 +1,130 @@
+Step 5 console output will be saved -> ..\Output\diagnostics\step5_console_output.txt
+Loading alpha scores + capacity data...
+Backtest window: 2013-01-02 -> 2024-12-31
+Participation cap: 5% ADV
+
+Building point-in-time rolling signal gate...
+Rolling gate: spread >= prior 252d p80.0%, rolling IC(126d) >= 0.020
+Trade days allowed: 424 / 3020 (14.0%)
+
+------------------------------------------------------------------------
+BASKET_FRAC DIAGNOSTIC (@ $250M AUM, fixed rolling gate)
+------------------------------------------------------------------------
+    frac    net_sharpe   gross_sharpe   net_ret%   net_vol%   trade_cost_bps
+    5.0%         0.325          0.905       0.81       2.48            142.6
+    7.5%         0.288          0.931       0.64       2.24            142.9
+   10.0%         0.208          0.896       0.44       2.10            143.3
+   12.5%         0.167          0.894       0.33       1.99            143.7
+   15.0%         0.124          0.891       0.24       1.90            144.1
+------------------------------------------------------------------------
+
+Headline uses fixed BASKET_FRAC = 5.0%; no test-period best-frac selection.
+
+Running backtest @ AUM = $50M ...
+Running backtest @ AUM = $250M ...
+Running backtest @ AUM = $1B ...
+
+================================================================================
+HEADLINE PERFORMANCE TABLE  (2013-2024, net of all costs)
+================================================================================
+      net_ann_ret (%)  net_ann_vol (%)  net_sharpe  gross_sharpe  max_drawdown (%)  avg_daily_turnover (1-way %)  avg_gross_exposure (%)  frac_days_at_cap (%)  trade_cost_ann (bps)  borrow_cost_ann (bps)
+AUM                                                                                                                                                                                                        
+50M              0.76             2.47       0.309         0.891             -6.52                          12.0                    14.0                  86.0                 142.5                    2.8
+250M             0.81             2.48       0.325         0.905             -6.78                          12.0                    14.0                  86.0                 142.6                    2.8
+1B               1.88             2.70       0.699         1.149             -5.01                          10.2                    12.0                  95.9                 122.2                    2.1
+
+------------------------------------------------------------
+COST DECOMPOSITION @ $50M AUM
+------------------------------------------------------------
+  Gross Sharpe:               0.891
+  After commission Sharpe:    0.750
+  After slippage Sharpe:      0.320
+  Net   Sharpe:               0.309
+  Commission drag:             35.6 bps/yr ( 0.142 Sharpe)
+  Slippage drag:              106.9 bps/yr ( 0.429 Sharpe)
+  Borrow drag:                  2.8 bps/yr ( 0.011 Sharpe)
+  Total cost drag:            145.3 bps/yr ( 0.582 Sharpe)
+
+------------------------------------------------------------
+COST DECOMPOSITION @ $250M AUM
+------------------------------------------------------------
+  Gross Sharpe:               0.905
+  After commission Sharpe:    0.764
+  After slippage Sharpe:      0.337
+  Net   Sharpe:               0.325
+  Commission drag:             35.6 bps/yr ( 0.141 Sharpe)
+  Slippage drag:              106.9 bps/yr ( 0.428 Sharpe)
+  Borrow drag:                  2.8 bps/yr ( 0.011 Sharpe)
+  Total cost drag:            145.4 bps/yr ( 0.580 Sharpe)
+
+------------------------------------------------------------
+COST DECOMPOSITION @ $1B AUM
+------------------------------------------------------------
+  Gross Sharpe:               1.149
+  After commission Sharpe:    1.039
+  After slippage Sharpe:      0.707
+  Net   Sharpe:               0.699
+  Commission drag:             30.5 bps/yr ( 0.109 Sharpe)
+  Slippage drag:               91.6 bps/yr ( 0.333 Sharpe)
+  Borrow drag:                  2.1 bps/yr ( 0.008 Sharpe)
+  Total cost drag:            124.3 bps/yr ( 0.450 Sharpe)
+
+------------------------------------------------------------
+YEAR-BY-YEAR PERFORMANCE @ $50M AUM
+------------------------------------------------------------
+ year  net_sharpe  net_ret (%)  trade_days  n_long_avg_all  n_short_avg_all  n_long_avg_traded  n_short_avg_traded
+ 2013       0.765         0.68          35            4.17             4.17               30.0                30.0
+ 2014       0.504         0.80          69            9.15             9.15               33.4                33.4
+ 2015      -0.206        -0.60          39            5.62             5.62               36.3                36.3
+ 2016       0.494         1.50          36            5.27             5.27               36.9                36.9
+ 2017       1.470         2.42          56            8.61             8.61               38.6                38.6
+ 2018       0.683         2.07          69           11.35            11.35               41.3                41.3
+ 2019      -0.988        -1.76          21            3.45             3.45               41.4                41.4
+ 2020       0.094         0.48          61            9.37             9.37               38.9                38.9
+ 2021       1.149         2.76          23            4.12             4.12               45.1                45.1
+ 2022       1.189         0.95           5            0.90             0.90               45.2                45.2
+ 2023      -0.074        -0.15          10            1.82             1.82               45.4                45.4
+ 2024         NaN         0.00           0            0.00             0.00                0.0                 0.0
+
+------------------------------------------------------------
+YEAR-BY-YEAR PERFORMANCE @ $250M AUM
+------------------------------------------------------------
+ year  net_sharpe  net_ret (%)  trade_days  n_long_avg_all  n_short_avg_all  n_long_avg_traded  n_short_avg_traded
+ 2013       0.935         0.89          35            4.17             4.17               30.0                30.0
+ 2014       0.812         1.38          69            9.15             9.15               33.4                33.4
+ 2015      -0.266        -0.80          39            5.62             5.62               36.3                36.3
+ 2016       0.576         1.74          36            5.27             5.27               36.9                36.9
+ 2017       1.392         2.30          56            8.61             8.61               38.6                38.6
+ 2018       0.759         2.31          69           11.35            11.35               41.3                41.3
+ 2019      -1.106        -2.00          21            3.45             3.45               41.4                41.4
+ 2020       0.098         0.50          61            9.37             9.37               38.9                38.9
+ 2021       1.090         2.64          23            4.12             4.12               45.1                45.1
+ 2022       1.135         0.94           5            0.90             0.90               45.2                45.2
+ 2023      -0.118        -0.23          10            1.82             1.82               45.4                45.4
+ 2024         NaN         0.00           0            0.00             0.00                0.0                 0.0
+
+------------------------------------------------------------
+YEAR-BY-YEAR PERFORMANCE @ $1B AUM
+------------------------------------------------------------
+ year  net_sharpe  net_ret (%)  trade_days  n_long_avg_all  n_short_avg_all  n_long_avg_traded  n_short_avg_traded
+ 2013       1.039         1.49          35            4.17             4.17               30.0                30.0
+ 2014       1.750         6.63          69            9.15             9.15               33.4                33.4
+ 2015      -0.239        -0.94          39            5.62             5.62               36.3                36.3
+ 2016       0.784         2.37          36            5.27             5.27               36.9                36.9
+ 2017       1.369         2.47          56            8.61             8.61               38.6                38.6
+ 2018       1.433         4.63          69           11.35            11.35               41.3                41.3
+ 2019      -1.204        -2.12          21            3.45             3.45               41.4                41.4
+ 2020       0.985         4.46          61            9.37             9.37               38.9                38.9
+ 2021       1.241         3.03          23            4.12             4.12               45.1                45.1
+ 2022       1.077         1.05           5            0.90             0.90               45.2                45.2
+ 2023      -0.344        -0.48          10            1.82             1.82               45.4                45.4
+ 2024         NaN         0.00           0            0.00             0.00                0.0                 0.0
+
+Daily P&L saved -> Output/diagnostics/step5_pnl_{50m,250m,1b}.csv
+Signal gate saved -> Output/diagnostics/step5_signal_gate.csv
+Basket diagnostic saved -> Output/diagnostics/step5_basket_frac_diagnostic.csv
+Headline table saved -> Output/diagnostics/step5_headline_performance.csv
+Cost decomposition saved -> Output/diagnostics/step5_cost_decomposition.csv
+Year-by-year table saved -> Output/diagnostics/step5_year_by_year_performance.csv
+Console output saved -> Output/diagnostics/step5_console_output.txt
+Back-test done.

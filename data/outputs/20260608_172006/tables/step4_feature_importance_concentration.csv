@@ -1,0 +1,4 @@
+metric,name,importance,importance_share
+top_feature,feature_beta_on,1331.3541666666667,0.03793010908822661
+top_5_features,"feature_beta_on,feature_r_overnight_lag10,feature_r_overnight_lag5,feature_r_overnight_lag4,feature_r_overnight_lag3",6253.895833333334,0.17817268847300652
+top_group,C: Overnight history,8863.125,0.2525092920648501
